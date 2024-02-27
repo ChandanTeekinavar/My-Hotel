@@ -20,6 +20,8 @@ function App() {
     '4bed': 250
   };
 
+  const API_BASE_URL = 'http://127.0.0.1:5000/book_room'; // Replace with your backend container IP and port
+
   const calculatePrice = () => {
     const roomPrice = roomTypePrices[roomType] || 0 ;
 
@@ -54,7 +56,7 @@ function App() {
       price
     };
 
-    axios.post('/book_room', data)
+    axios.post('http://127.0.0.1:5000/book_room', data) // Replace the URL here
       .then(response => {
         console.log(response.data);
         setErrorMessage(`Room booked successfully. Total Price: ₹${price}`);
